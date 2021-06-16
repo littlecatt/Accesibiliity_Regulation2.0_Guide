@@ -347,6 +347,8 @@ function sorry_space(on_or_off){
 
 function toggle_criteria_by_search(event){
   console.log("enter toggle search");
+  // Clear previous search first
+  clearSearch();
   // Get the search pattern input by user
   var pattern = document.getElementById("search-input").value;
   // Get space for message
