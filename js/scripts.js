@@ -225,6 +225,7 @@ function search_valid(pattern, id_set){
   // Determine category by pattern head
   // And search inside category
   valid_id_set = [];
+  var pass_once = false;
   if (pat_head === "EV"){
     var pool = id_set[0];
     for (var idx in pool){
@@ -235,7 +236,10 @@ function search_valid(pattern, id_set){
           pass = false;
         }
       }
-      if (pass) valid_id_set.push(test_pattern);
+      if (pass) {
+        valid_id_set.push(test_pattern);
+        pass_once = true; 
+      }
     }
   }
   else if (pat_head === "XH"){
@@ -248,7 +252,10 @@ function search_valid(pattern, id_set){
           pass = false;
         }
       }
-      if (pass) valid_id_set.push(test_pattern);
+      if (pass) {
+        valid_id_set.push(test_pattern);
+        pass_once = true; 
+      }
     }
   }
   else if (pat_head === "CS"){
@@ -261,7 +268,10 @@ function search_valid(pattern, id_set){
           pass = false;
         }
       }
-      if (pass) valid_id_set.push(test_pattern);
+      if (pass) {
+        valid_id_set.push(test_pattern);
+        pass_once = true; 
+      }
     }
   }
   else if (pat_head === "ME"){
@@ -274,9 +284,13 @@ function search_valid(pattern, id_set){
           pass = false;
         }
       }
-      if (pass) valid_id_set.push(test_pattern);
+      if (pass) {
+        valid_id_set.push(test_pattern);
+        pass_once = true; 
+      }
     }
   }
+  if (pass_once == false) return -1;
   return valid_id_set;
 }
 
