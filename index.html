@@ -30,7 +30,15 @@
 						Hide/Show sidebar
 					</button>
 				</div>
-				<div class="current-filter col-lg-8 col-md-8">
+				<div class="search-bar col-lg-4 col-md-4">
+					<input id="search-input" type="text" placeholder="搜尋欲查看的評量碼、稽核碼...">
+					<button class="btn btn-info"
+							type="button"
+							id="applySearchBTN">
+							Search
+					</button>
+				</div>
+				<div class="current-filter col-lg-6 col-md-6">
 					<strong> Current filter: </strong>
 					<span class="current-filter-accesibility-level">
 						<input type="checkbox" checked="true" id="Level-A-check"> A 
@@ -52,13 +60,19 @@
 							Clear filter
 					</button>
 				</div>
-				<div class="expand-collapse-btn col-lg-2 col-md-2">
-					<button class="btn btn-info"
-							type="button"
-							id="expandCollapseBTN">
-							Expand all section
-					</button>
+			</div>
+			<div class="row search-message-row">
+				<div id="search-message" class="col-lg-3 col-md-3">
+						<!-- Here will be fill with message in script.js -->
 				</div>
+				<div id="sorry-message" >
+						<!-- Here will be fill with message in script.js -->
+				</div>
+				<button class="btn btn-info"
+						type="button"
+						id="clearSearchBTN">
+						Clear Search
+				</button>
 			</div>
 		</div>
 	</div> <!-- sticky-header end -->
@@ -402,7 +416,7 @@
 					<div class="perceivable-header principle-header">
 						<h2> 原則一：可感知</h2>
 						<p>
-							資訊及使用者介面元件應以使用者能察覺之方式呈現使用者一定要能察覺呈現出來的資訊（也就是資訊不能對使用者所有的感官均無形
+							資訊及使用者介面元件應以使用者能察覺之方式呈現使用者一定要能察覺呈現出來的資訊（也就是資訊不能對使用者所有的感官均無形）
 						</p>
 					</div>
 					<div class="perceivable-content">
@@ -649,13 +663,21 @@
 											      		<h5 class="card-title"> Evaluation example </h5>
 											      		<div class="card-text">
 											      			<p>
-											      				開啟，並搭配Firefox中外掛擴充元件「Firefox Accessibility Extension」。
+											      				1.開啟，並搭配Firefox中外掛擴充元件「Firefox Accessibility Extension」。
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-1.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010101-1.jpg">
 											      			<p>
-											      				點選選單列中的Accessibility→Text Equivalents→Show Text Equivalents 來顯示此圖片的替代文字。
+											      				2.點選選單列中的Accessibility→Text Equivalents→Show Text Equivalents 來顯示此圖片的替代文字。
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-2.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010101-2.jpg">
+											      			<p>
+											      				3.點選網頁右鍵”檢視原始碼”。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010101-3.jpg">
+											      			<p>
+											      				4.可以對照程式碼中，我們可以看到只有第一張圖(mg src="w3c1.png")　有替代文字(alt="這是w3c網站")，其他圖片項目都沒有替代文字(alt)。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010101-4.jpg">
 											      		</div>
 												      </div>
 												  </div>
@@ -690,20 +712,144 @@
 											      		<h5 class="card-title"> Evaluation example </h5>
 											      		<div class="card-text">
 											      			<p>
-											      				開啟，並搭配Firefox中外掛擴充元件「Firefox Accessibility Extension」。
+											      				1.使用Firefox搭配「Firefox Accessibility Extension」顯示替代文字（Accessibility→Text Equivalents→Show Text Equivalents）
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-1.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010102-1.jpg">
 											      			<p>
-											      				點選選單列中的Accessibility→Text Equivalents→Show Text Equivalents 來顯示此圖片的替代文字。
+											      				2.檢查所有的替代文字是否與其圖片區域原本要表達的功能及意義吻合，必要的時候並參考區域的鏈結目的地來驗證
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-2.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010102-2.jpg">
 											      		</div>
 												      </div>
 												  </div>
 										    </div>
-										   </div>
+										   </div> <!-- EV1010102 end -->
+										   <div class="card">
+										    <div class="card-header" id="headingOne">
+										    	<h5>
+											        <button class="btn btn-block text-left" 
+											        		type="button" 
+											        		data-toggle="collapse" 
+											        		data-target="#EV1010103" 
+											        		aria-expanded="true" 
+											        		aria-controls="collapseOne">
+											        		EV1010103
+											        </button>
+											    </h5>
+										    </div>
+										    <div id="EV1010103" 
+										    	 class="collapse show" 
+										    	 aria-labelledby="headingOne" 
+										    	 data-parent="#evaluation-1-1-accordion">
+										    	 <div class="card-body">
+										    	 	圖片無法以替代文字清晰表達時，利用長描述提供更詳盡的說明網頁網址，利用整個說明網頁的篇幅來詳盡描述，最後並要能連結回原本的圖片
+										    	 </div>
+										    	 <div class="card">
+										    	 	<div class="card-body evaluation-detail">
+											      		<h5 class="card-title"> Evaluation rule </h5>
+											      		<p class="card-text">
+											      			任何運用HTML或XHTML替代文字的網頁，都必須要遵守此規範。
+											      		</p>
+											      		<h5 class="card-title"> Evaluation example </h5>
+											      		<div class="card-text">
+											      			<p>
+											      				1. 使用Google Chrome瀏覽器，點選滑鼠右鍵，開啟「檢視原始碼」。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010103-1.jpg">
+											      			<p>
+											      				2. 檢查是否有利用長描述提供更詳盡的說明網頁網址。 
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010103-2.jpg">
+											      		</div>
+												      </div>
+												  </div>
+										    </div>
+										   </div> <!-- EV1010103 end -->
+										   <div class="card">
+										    <div class="card-header" id="headingOne">
+										    	<h5>
+											        <button class="btn btn-block text-left" 
+											        		type="button" 
+											        		data-toggle="collapse" 
+											        		data-target="#EV1010104" 
+											        		aria-expanded="true" 
+											        		aria-controls="collapseOne">
+											        		EV1010104
+											        </button>
+											    </h5>
+										    </div>
+										    <div id="EV1010104" 
+										    	 class="collapse show" 
+										    	 aria-labelledby="headingOne" 
+										    	 data-parent="#evaluation-1-1-accordion">
+										    	 <div class="card-body">
+										    	 	提供字符圖案、表情符號、其他挪用文字外型作為表意功能之語言形式的替代文字，且其替代文字需有意義、可代替前述內容之目的與功能
+										    	 </div>
+										    	 <div class="card">
+										    	 	<div class="card-body evaluation-detail">
+											      		<h5 class="card-title"> Evaluation rule </h5>
+											      		<p class="card-text">
+											      			表情符號或ASCII藝術字可能為任何字元湊成的形狀，故主要用觀察法評鑑。
+											      		</p>
+											      		<h5 class="card-title"> Evaluation example </h5>
+											      		<div class="card-text">
+											      			<p>
+											      				1.先判斷出在網頁上由字元湊成的表情符號或ASCII藝術字。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010104-1.jpg">
+											      			<p>
+											      				2.接著檢查在表情符號的前後方必須要有等同於符號所要表達意義之文字說明。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010104-2.jpg">
+											      		</div>
+												      </div>
+												  </div>
+										    </div>
+										   </div> <!-- EV1010104 end -->
+										   <div class="card">
+										    <div class="card-header" id="headingOne">
+										    	<h5>
+											        <button class="btn btn-block text-left" 
+											        		type="button" 
+											        		data-toggle="collapse" 
+											        		data-target="#EV1010105" 
+											        		aria-expanded="true" 
+											        		aria-controls="collapseOne">
+											        		EV1010105
+											        </button>
+											    </h5>
+										    </div>
+										    <div id="EV1010105" 
+										    	 class="collapse show" 
+										    	 aria-labelledby="headingOne" 
+										    	 data-parent="#evaluation-1-1-accordion">
+										    	 <div class="card-body">
+										    	 	圖片以外的非文字內容需要有替代文字或長描述，並需具有與該內容或物件相同目的、呈現相同資訊，或者可提供概略描述、俗名、描述性名稱
+										    	 </div>
+										    	 <div class="card">
+										    	 	<div class="card-body evaluation-detail">
+											      		<h5 class="card-title"> Evaluation rule </h5>
+											      		<p class="card-text">
+											      			表情符號或ASCII藝術字可能為任何字元湊成的形狀，故主要用觀察法評鑑。
+											      		</p>
+											      		<h5 class="card-title"> Evaluation example </h5>
+											      		<div class="card-text">
+											      			<p>
+											      				1.先判斷出在網頁上由字元湊成的表情符號或ASCII藝術字。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010105-1.jpg">
+											      			<p>
+											      				2.接著檢查在表情符號的前後方必須要有等同於符號所要表達意義之文字說明。
+											      			</p>
+											      			<img src="./images/evaluation_screenshot/EV1010105-2.jpg">
+											      		</div>
+												      </div>
+												  </div>
+										    </div>
+										   </div> <!-- EV1010105 end -->
 										</div> <!-- Evaluation-1-1 accordion end -->
 									<hr>
+									<!-- EV1010106 not done yet !!!!!!!!-->
 								</div>
 							</div><!-- Criteria-1-1 end -->
 							<div class="criteria-content accesibility-level-A">
@@ -814,13 +960,13 @@
 											      		<h5 class="card-title"> Evaluation example </h5>
 											      		<div class="card-text">
 											      			<p>
-											      				開啟，並搭配Firefox中外掛擴充元件「Firefox Accessibility Extension」。
+											      				1. 網頁上刪除或隱藏冗長的文字敘述，只需要用簡短的文字來描述。以下範例為高速公路實況資訊，可看出只以簡短的文字內容來描述此影片。
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-1.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010200-1.jpg">
 											      			<p>
-											      				點選選單列中的Accessibility→Text Equivalents→Show Text Equivalents 來顯示此圖片的替代文字。
+											      				2. 檢查影像是否正確的顯示出來。
 											      			</p>
-											      			<img src="./images/evaluation_screenshot/EV1010100-2.jpg">
+											      			<img src="./images/evaluation_screenshot/EV1010200-2.jpg">
 											      		</div>
 												      </div>
 												  </div>
@@ -2149,6 +2295,7 @@
 													  </div>
 												 </div>
 											</div> <!-- EV3020800 end -->
+											<!-- EV3020801 not done yet !!!! -->
 										</div> <!-- Evaluation-2-8 accordion end -->
 										<hr>
 									</div> 
@@ -3114,6 +3261,7 @@
 										   </div><!-- EV1030112 end -->
 										</div> <!-- Evaluation-3-1 accordion end -->
 									<hr>
+									<!-- EV1030113 not done yet !!!!!1-->
 								</div>
 							</div> <!-- Criteria 3.1 end -->
 							<div class="criteria-content accesibility-level-A">
@@ -4440,9 +4588,7 @@
 									<div class="inspection-collapse">
 										<button class="btn " 
 												type="button" 
-												data-toggle="collapse" 
-												data-target="#inspection-4-6-accordion" 
-												aria-expanded="true"> 
+												disabled>
 											<i class="fa fa-chevron-right"></i>
 											No inspection code for criteria 4.6
 										</button>
@@ -5492,7 +5638,7 @@
 										        <button class="btn btn-block text-left" 
 										        		type="button" 
 										        		data-toggle="collapse" 
-										        		data-target="#EV1010101" 
+										        		data-target="#EV1050101" 
 										        		aria-expanded="true" 
 										        		aria-controls="collapseOne">
 										        		EV1050101：確認所有功能都能透過鍵盤介面來操作。
@@ -5515,14 +5661,14 @@
 										        <button class="btn btn-block text-left" 
 										        		type="button" 
 										        		data-toggle="collapse" 
-										        		data-target="#EV1010102" 
+										        		data-target="#EV1050102" 
 										        		aria-expanded="true" 
 										        		aria-controls="collapseOne">
 										        		EV1010102：圖片組件需有替代文字屬性
 										        </button>
 										    </h5>
 									    </div>
-									    <div id="EV1010102" 
+									    <div id="EV1050102" 
 									    	 class="collapse show" 
 									    	 aria-labelledby="headingOne" 
 									    	 data-parent="#evaluation-1-1-accordion">
