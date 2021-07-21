@@ -19,7 +19,7 @@ body{
 .sticky-header input{
 }
 
-#applyFilterBTN, #searchBTN{
+#applyFilterBTN, #applySearchBTN{
 	margin-left: 1.5em;
 }
 .search-message-row{
